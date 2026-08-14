@@ -1,32 +1,61 @@
-# React + TypeScript + Vite
+Leave Management Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A Leave Management Portal built using React + TypeScript, based on the UI/UX design provided in Figma.
 
-Currently, two official plugins are available:
+The application includes a sidebar navigation, dashboard/welcome page, and Leave Management pages with navigation between the different sections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Live Demo
+task-9-leave-management-portal.vercel.app
 
-## React Compiler
+Features
+Figma-based UI design
+React + TypeScript
+React Router DOM for page navigation
+React Icons for UI icons
+Responsive layout
+Leave Management navigation
+Dashboard/Welcome page
+Leave Settings
+Leave Recall
+Leave History
+Relief Officers
+Sidebar available across pages
+Active navigation highlighting
+Technologies Used
+React
+TypeScript
+Vite
+CSS
+React Router DOM
+React Icons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+react-icons is used for SVG-based React icons, while React Router DOM is used for routing between pages.
 
-## Expanding the Oxlint configuration
+Installation
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Clone the project and install the dependencies:
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+npm install
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Install the required packages if needed:
+
+npm install react-router-dom react-icons
+Run the Project
+npm run dev
+
+The application will run locally using Vite.
+
+Pages
+Dashboard / Welcome
+        ↓
+Leave Management
+        ├── Leave Settings
+        ├── Leave Recall
+        ├── Leave History
+        └── Relief Officers
+
+The other sidebar options are displayed according to the Figma design, while Leave Management is the main functional section.
+
+Design
+
+The UI was developed based on the Figma design provided by the UI/UX designer, with the layout, colors, sidebar structure, navigation buttons, and Leave Management pages implemented in React + TypeScript.
