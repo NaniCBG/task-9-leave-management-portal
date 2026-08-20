@@ -1,9 +1,25 @@
-import { FaFilter } from "react-icons/fa";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaFilter, FaChevronDown } from "react-icons/fa";
 import { employees } from "../data/employees";
 
 function EmployeeManagement() {
   const navigate = useNavigate();
+
+  // Stores which employee's dropdown is open
+  const [openActionId, setOpenActionId] = useState<number | null>(null);
+
+  const handleActionClick = (employeeId: number) => {
+    setOpenActionId((currentId) =>
+      currentId === employeeId ? null : employeeId
+    );
+  };
+
+  const handleViewProfile = (employeeId: number) => {
+    setOpenActionId(null);
+
+    navigate(`/employee-management/${employeeId}/profile`);
+  };
 
   return (
     <div className="employee-page">
@@ -13,29 +29,29 @@ function EmployeeManagement() {
         Dashboard / Employee Management
       </div>
 
-      <div className="employee-card">
+      {/* Page Header */}
+      <div className="employee-heading">
 
-        {/* Heading */}
-        <div className="employee-heading">
+        <h1>Employee Management</h1>
 
-          <h3>
-            Employee Management
-          </h3>
+        <div className="employee-actions">
 
-          <div className="employee-actions">
+          <FaFilter className="employee-filter" />
 
-            <FaFilter className="employee-filter" />
-
-            <button className="employee-export">
-              Export
-              <span>●</span>
-            </button>
-
-          </div>
+          <button
+            type="button"
+            className="employee-export"
+          >
+            Export ↓
+          </button>
 
         </div>
 
-        {/* Employee Table */}
+      </div>
+
+      {/* Employee Table */}
+      <div className="employee-card">
+
         <div className="employee-table-wrapper">
 
           <table className="employee-table">
@@ -70,18 +86,59 @@ function EmployeeManagement() {
 
                   <td>{employee.gender}</td>
 
-                  <td>
-                    <button
-                      className="employee-action-button"
-                      onClick={() =>
-                        navigate(
-                          `/employee-management/${employee.id}/profile`
-                        )
-                      }
-                    >
-                      Actions
-                      <span>●</span>
-                    </button>
+                  <td className="action-cell">
+
+                    {/* Action Menu Wrapper */}
+                    <div className="action-menu-wrapper">
+
+                      {/* Action Button */}
+                      <button
+                        type="button"
+                        className="employee-action-button"
+                        onClick={() =>
+                          handleActionClick(employee.id)
+                        }
+                      >
+                        <span>Actions</span>
+
+                        <FaChevronDown
+                          className={
+                            openActionId === employee.id
+                              ? "action-arrow-up"
+                              : ""
+                          }
+                        />
+                      </button>
+
+                      {/* Dropdown */}
+                      {openActionId === employee.id && (
+
+                        <div className="action-dropdown">
+
+                          {/* View Profile - WORKING */}
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleViewProfile(employee.id)
+                            }
+                          >
+                            View Profile
+                          </button>
+
+                          {/* Edit Profile - NOT WORKING */}
+                          <button
+                            type="button"
+                            className="edit-profile-disabled"
+                          >
+                            Edit Profile
+                          </button>
+
+                        </div>
+
+                      )}
+
+                    </div>
+
                   </td>
 
                 </tr>

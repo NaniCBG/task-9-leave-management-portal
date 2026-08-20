@@ -13,8 +13,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/personal`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -24,8 +24,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/contact`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -35,8 +35,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/next-of-kin`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -46,8 +46,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/education`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -57,8 +57,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/guarantor`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -68,8 +68,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/family`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -79,8 +79,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/job`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >
@@ -90,8 +90,8 @@ function EmployeeProfileSidebar({
       <NavLink
         to={`/employee-management/${employeeId}/financial`}
         className={({ isActive }) =>
-          `profile-nav-button ${
-            isActive ? "profile-nav-active" : ""
+          `profile-sidebar-button ${
+            isActive ? "profile-sidebar-active" : ""
           }`
         }
       >

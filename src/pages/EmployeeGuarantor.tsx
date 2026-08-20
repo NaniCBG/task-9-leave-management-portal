@@ -19,7 +19,7 @@ function EmployeeGuarantor() {
 
       <button
         className="back-button"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/employee-management")}
       >
         ← Back
       </button>

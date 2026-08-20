@@ -160,10 +160,6 @@ body {
     color 0.15s ease;
 }
 
-/*
-   React Icons
-*/
-
 .sidebar-icon {
   width: 14px;
   height: 14px;
@@ -173,17 +169,9 @@ body {
   color: white;
 }
 
-/*
-   Static sidebar items
-*/
-
 .sidebar-item:hover {
   background: rgba(255, 255, 255, 0.08);
 }
-
-/*
-   Active Dashboard / Leave Management
-*/
 
 .sidebar-active {
   background: #ffc400;
@@ -287,8 +275,6 @@ body {
 
   gap: 40px;
 }
-
-/* Menu */
 
 .menu-button {
   border: none;
@@ -779,159 +765,312 @@ tbody tr:nth-child(odd) {
 }
 
 /* =====================================================
-   RESPONSIVE - TABLET
+   EMPLOYEE MANAGEMENT
 ===================================================== */
 
-@media (max-width: 900px) {
+.employee-page {
+  padding: 5px 5px 30px;
+}
 
-  .sidebar {
-    width: 150px;
-  }
+.employee-breadcrumb {
+  font-size: 11px;
 
-  .main-section {
-    margin-left: 150px;
+  margin-bottom: 22px;
 
-    width: calc(100% - 150px);
-  }
+  color: #111;
+}
 
-  .leave-navigation {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.employee-heading {
+  display: flex;
 
-  .settings-grid {
-    grid-template-columns: 1fr;
-  }
+  align-items: center;
 
-  .top-header {
-    gap: 15px;
-  }
+  justify-content: space-between;
 
-  .search-area {
-    width: 280px;
-  }
+  margin-bottom: 18px;
+}
+
+.employee-heading h1 {
+  margin: 0;
+
+  font-size: 24px;
+
+  color: #163773;
+}
+
+.employee-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.employee-filter {
+  font-size: 15px;
+
+  color: #111;
+
+  cursor: pointer;
+}
+
+.employee-export {
+  border: none;
+
+  background: #368d1c;
+
+  color: white;
+
+  padding: 8px 18px;
+
+  border-radius: 5px;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.employee-card {
+  background: white;
+
+  border-radius: 10px;
+
+  overflow: visible;
+}
+
+.employee-table-wrapper {
+  width: 100%;
+
+  overflow-x: auto;
+
+  overflow-y: visible;
+}
+
+.employee-table {
+  width: 100%;
+
+  border-collapse: separate;
+
+  border-spacing: 0;
+
+  font-size: 8px;
+}
+
+.employee-table th {
+  background: #dfebf8;
+
+  padding: 12px 10px;
+
+  text-align: left;
+
+  color: #111;
+}
+
+.employee-table td {
+  padding: 12px 10px;
+
+  position: relative;
+}
+
+.employee-table tbody tr:nth-child(even) {
+  background: #e6f0fa;
+}
+
+.employee-table tbody tr:nth-child(odd) {
+  background: white;
 }
 
 /* =====================================================
-   RESPONSIVE - MOBILE
+   EMPLOYEE ACTION BUTTON
 ===================================================== */
 
-@media (max-width: 600px) {
+/*
+   IMPORTANT:
 
-  .sidebar {
-    width: 110px;
+   Your JSX uses:
 
-    padding-left: 7px;
-    padding-right: 7px;
-  }
+   <div className="action-menu-wrapper">
 
-  .main-section {
-    margin-left: 110px;
+   Therefore the wrapper must be position: relative.
 
-    width: calc(100% - 110px);
-  }
+   This makes every dropdown position itself relative
+   to its own Actions button instead of the whole page.
+*/
 
-  .logo {
-    font-size: 12px;
-  }
+.action-menu-wrapper {
+  position: relative;
 
-  .logo-symbol {
-    font-size: 16px;
-  }
+  display: inline-block;
 
-  .profile {
-    gap: 5px;
-  }
+  width: auto;
 
-  .profile-image {
-    width: 35px;
-    height: 35px;
-
-    font-size: 17px;
-  }
-
-  .profile h3 {
-    font-size: 8px;
-  }
-
-  .profile span {
-    font-size: 6px;
-  }
-
-  .sidebar-item {
-    font-size: 7px;
-
-    gap: 5px;
-
-    padding: 5px;
-  }
-
-  .sidebar-icon {
-    width: 11px;
-    height: 11px;
-  }
-
-  .section-title {
-    font-size: 6px;
-  }
-
-  .top-header {
-    flex-wrap: wrap;
-
-    height: auto;
-
-    padding: 15px;
-
-    gap: 15px;
-  }
-
-  .search-area {
-    width: 220px;
-  }
-
-  .header-icons {
-    margin-left: 0;
-  }
-
-  .leave-navigation {
-    grid-template-columns: 1fr;
-  }
-
-  .settings-grid {
-    grid-template-columns: 1fr;
-  }
-
-  table {
-    min-width: 700px;
-  }
-
-  .table-card {
-    overflow-x: auto;
-  }
-
-  .leave-banner {
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 20px;
-  }
-
-  .leave-banner h1 {
-    font-size: 20px;
-  }
+  z-index: 1;
 }
+
+/* Bring the row above nearby rows while dropdown is open */
+
+.employee-table tbody tr:hover {
+  position: relative;
+
+  z-index: 5;
+}
+
 /* =====================================================
-   EMPLOYEE PROFILE
+   ACTION BUTTON
+===================================================== */
+
+.employee-action-button {
+  min-width: 85px;
+
+  height: 28px;
+
+  padding: 0 12px;
+
+  border: none;
+
+  border-radius: 5px;
+
+  background: #20388c;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.employee-action-button:hover {
+  background: #29479f;
+}
+
+.employee-action-button svg {
+  width: 8px;
+
+  height: 8px;
+}
+
+/* =====================================================
+   ACTION DROPDOWN
+===================================================== */
+
+/*
+   The dropdown is placed BELOW the Actions button.
+
+   left: 0
+   means it starts exactly from the left side
+   of that particular Actions button.
+
+   top: calc(100% + 2px)
+   means it appears just below the button.
+*/
+
+.action-dropdown {
+  position: absolute;
+
+  top: calc(100% + 2px);
+
+  left: 0;
+
+  right: auto;
+
+  width: 120px;
+
+  background: #20388c;
+
+  border-radius: 0 0 5px 5px;
+
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+
+  overflow: hidden;
+
+  z-index: 9999;
+
+  /*
+     Hidden by default.
+     It appears when mouse goes over
+     the Actions button/dropdown area.
+  */
+  display: none;
+}
+
+/*
+   Show dropdown when hovering over the
+   complete action wrapper.
+
+   This allows the user to move the mouse
+   from Actions -> View Profile/Edit Profile.
+*/
+
+.action-menu-wrapper:hover .action-dropdown {
+  display: block;
+}
+
+/* =====================================================
+   DROPDOWN BUTTONS
+===================================================== */
+
+.action-dropdown button {
+  display: block;
+
+  width: 100%;
+
+  min-height: 36px;
+
+  padding: 10px 12px;
+
+  border: none;
+
+  background: #20388c;
+
+  color: white;
+
+  text-align: left;
+
+  font-size: 8px;
+
+  cursor: pointer;
+}
+
+.action-dropdown button:hover {
+  background: #29479f;
+}
+
+/* =====================================================
+   EDIT PROFILE
+   Visible but does nothing
+===================================================== */
+
+.edit-profile-disabled {
+  cursor: default !important;
+}
+
+.edit-profile-disabled:hover {
+  background: #20388c !important;
+}
+
+/* =====================================================
+   EMPLOYEE PROFILE PAGE
 ===================================================== */
 
 .employee-profile-page {
-  padding: 0 5px 30px;
+  padding: 10px 15px 30px;
 }
 
 .employee-profile-layout {
   display: grid;
-  grid-template-columns: 172px 1fr;
-  gap: 10px;
+
+  grid-template-columns: 165px 1fr;
+
+  gap: 15px;
+
   align-items: start;
 }
 
@@ -941,36 +1080,43 @@ tbody tr:nth-child(odd) {
 
 .employee-profile-sidebar {
   background: white;
+
   border-radius: 10px;
+
   padding: 10px;
 }
 
-.profile-nav-button {
-  height: 32px;
+.profile-sidebar-button {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 32px;
 
   margin-bottom: 8px;
 
-  background: #e3edf8;
+  background: #e2edf9;
 
   color: #111;
 
   border-radius: 6px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   text-decoration: none;
 
-  font-size: 7px;
+  font-size: 8px;
 }
 
-.profile-nav-button:hover {
-  background: #d7e5f5;
+.profile-sidebar-button:hover {
+  background: #d5e4f5;
 }
 
-.profile-nav-active {
+.profile-sidebar-active {
   background: #ffc000;
+
   color: #111;
 }
 
@@ -979,28 +1125,33 @@ tbody tr:nth-child(odd) {
 ===================================================== */
 
 .employee-profile-content {
-  min-height: 310px;
+  min-height: 300px;
 }
 
 .personal-profile-card {
-  min-height: 310px;
+  position: relative;
 
   background: white;
 
+  min-height: 315px;
+
   border-radius: 10px;
 
-  padding: 28px;
-
-  position: relative;
+  padding: 25px;
 
   text-align: center;
 }
 
+/* =====================================================
+   PROFILE EDIT AREA
+===================================================== */
+
 .edit-area {
   position: absolute;
 
-  top: 25px;
-  right: 30px;
+  right: 25px;
+
+  top: 20px;
 
   display: flex;
 
@@ -1008,22 +1159,31 @@ tbody tr:nth-child(odd) {
 
   align-items: center;
 
-  gap: 5px;
-
-  color: #777;
+  gap: 4px;
 
   font-size: 8px;
+
+  color: #555;
+
+  cursor: pointer;
 }
 
 .edit-area svg {
-  font-size: 21px;
+  font-size: 22px;
+
+  color: #888;
 }
 
-.employee-avatar {
-  width: 80px;
-  height: 80px;
+/* =====================================================
+   EMPLOYEE AVATAR
+===================================================== */
 
-  margin: 0 auto 15px;
+.employee-avatar {
+  width: 78px;
+
+  height: 78px;
+
+  margin: 5px auto 15px;
 
   border-radius: 50%;
 
@@ -1032,29 +1192,30 @@ tbody tr:nth-child(odd) {
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  font-size: 42px;
+  font-size: 40px;
 }
 
 .profile-label {
-  font-size: 7px;
+  font-size: 8px;
 
-  margin: 8px 0 5px;
+  margin: 10px 0 5px;
 
   color: #333;
 }
 
 .personal-profile-card h2 {
-  font-size: 12px;
+  font-size: 14px;
 
-  margin: 0 0 16px;
+  margin: 5px 0 15px;
 }
 
 .personal-profile-card h3 {
   font-size: 11px;
 
-  margin: 0 0 18px;
+  margin: 5px 0 15px;
 }
 
 .profile-job-row {
@@ -1062,11 +1223,9 @@ tbody tr:nth-child(odd) {
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 40px;
+  gap: 30px;
 
-  max-width: 450px;
-
-  margin: 0 auto;
+  margin-top: 15px;
 }
 
 /* =====================================================
@@ -1294,4 +1453,197 @@ tbody tr:nth-child(odd) {
   border-radius: 4px;
 
   font-size: 7px;
+}
+
+/* =====================================================
+   RESPONSIVE - TABLET
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .sidebar {
+    width: 150px;
+  }
+
+  .main-section {
+    margin-left: 150px;
+
+    width: calc(100% - 150px);
+  }
+
+  .leave-navigation {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top-header {
+    gap: 15px;
+  }
+
+  .search-area {
+    width: 280px;
+  }
+
+  .employee-profile-layout {
+    grid-template-columns: 150px 1fr;
+  }
+
+  .employee-table {
+    min-width: 750px;
+  }
+}
+
+/* =====================================================
+   RESPONSIVE - MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .sidebar {
+    width: 110px;
+
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+
+  .main-section {
+    margin-left: 110px;
+
+    width: calc(100% - 110px);
+  }
+
+  .logo {
+    font-size: 12px;
+  }
+
+  .logo-symbol {
+    font-size: 16px;
+  }
+
+  .profile {
+    gap: 5px;
+  }
+
+  .profile-image {
+    width: 35px;
+
+    height: 35px;
+
+    font-size: 17px;
+  }
+
+  .profile h3 {
+    font-size: 8px;
+  }
+
+  .profile span {
+    font-size: 6px;
+  }
+
+  .sidebar-item {
+    font-size: 7px;
+
+    gap: 5px;
+
+    padding: 5px;
+  }
+
+  .sidebar-icon {
+    width: 11px;
+
+    height: 11px;
+  }
+
+  .section-title {
+    font-size: 6px;
+  }
+
+  .top-header {
+    flex-wrap: wrap;
+
+    height: auto;
+
+    padding: 15px;
+
+    gap: 15px;
+  }
+
+  .search-area {
+    width: 220px;
+  }
+
+  .header-icons {
+    margin-left: 0;
+  }
+
+  .leave-navigation {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  table {
+    min-width: 700px;
+  }
+
+  .table-card {
+    overflow-x: auto;
+  }
+
+  .leave-banner {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .leave-banner h1 {
+    font-size: 20px;
+  }
+
+  /* Employee profile responsive */
+
+  .employee-profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .employee-profile-sidebar {
+    width: 100%;
+  }
+
+  .profile-sidebar-button {
+    min-height: 35px;
+  }
+
+  .profile-job-row {
+    grid-template-columns: 1fr;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .financial-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  /* Employee action dropdown */
+
+  .action-dropdown {
+    width: 120px;
+
+    left: 0;
+
+    right: auto;
+  }
 }

@@ -2,19 +2,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import DashboardLayout from "./layout/DashboardLayout";
 
-// Dashboard
+// ================= DASHBOARD =================
 import Welcome from "./pages/Welcome";
 
-// Leave Management
+// ================= LEAVE MANAGEMENT =================
 import LeaveManagement from "./pages/LeaveManagement";
 import LeaveSettings from "./pages/LeaveSettings";
 import LeaveRecall from "./pages/LeaveRecall";
 import LeaveHistory from "./pages/LeaveHistory";
 import ReliefOfficers from "./pages/ReliefOfficers";
 
-// Employee Management
+// ================= EMPLOYEE MANAGEMENT =================
 import EmployeeManagement from "./pages/EmployeeManagement";
 import EmployeeProfile from "./pages/EmployeeProfile";
+
+// Employee Profile Details
 import EmployeePersonalDetails from "./pages/EmployeePersonalDetails";
 import EmployeeContactDetails from "./pages/EmployeeContactDetails";
 import EmployeeNextOfKin from "./pages/EmployeeNextOfKin";
@@ -27,10 +29,12 @@ import EmployeeFinancial from "./pages/EmployeeFinancial";
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
 
-        {/* ================= MAIN LAYOUT ================= */}
+        {/* ==================================================
+            MAIN DASHBOARD LAYOUT
+            Sidebar + Header appear on every page
+        ================================================== */}
 
         <Route element={<DashboardLayout />}>
 
@@ -41,7 +45,10 @@ function App() {
             element={<Welcome />}
           />
 
-          {/* ================= LEAVE MANAGEMENT ================= */}
+
+          {/* ==================================================
+              LEAVE MANAGEMENT
+          ================================================== */}
 
           <Route
             path="/leave-management"
@@ -68,21 +75,34 @@ function App() {
             element={<ReliefOfficers />}
           />
 
-          {/* ================= EMPLOYEE MANAGEMENT ================= */}
 
-          {/* Employee List */}
+          {/* ==================================================
+              EMPLOYEE MANAGEMENT
+          ================================================== */}
+
+          {/* Employee Management List */}
 
           <Route
             path="/employee-management"
             element={<EmployeeManagement />}
           />
 
-          {/* Employee Profile */}
+
+          {/* ==================================================
+              EMPLOYEE PROFILE
+          ================================================== */}
+
+          {/* View Profile button opens this page */}
 
           <Route
             path="/employee-management/:employeeId/profile"
             element={<EmployeeProfile />}
           />
+
+
+          {/* ==================================================
+              EMPLOYEE PROFILE DETAILS
+          ================================================== */}
 
           {/* Personal Details */}
 
@@ -98,7 +118,7 @@ function App() {
             element={<EmployeeContactDetails />}
           />
 
-          {/* Next of Kin */}
+          {/* Next of Kin Details */}
 
           <Route
             path="/employee-management/:employeeId/next-of-kin"
@@ -143,7 +163,6 @@ function App() {
         </Route>
 
       </Routes>
-
     </BrowserRouter>
   );
 }

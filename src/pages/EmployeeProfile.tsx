@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { FaEdit } from "react-icons/fa";
-
 import EmployeeProfileSidebar from "../components/EmployeeProfileSidebar";
 import { employees } from "../data/employees";
 
@@ -9,22 +8,20 @@ function EmployeeProfile() {
   const navigate = useNavigate();
 
   const employee = employees.find(
-    (item) => String(item.id) === employeeId
+    (item) => item.id === Number(employeeId)
   );
 
   if (!employee) {
     return (
-      <div className="employee-profile-page">
+      <div>
+        <h2>Employee not found</h2>
 
         <button
           className="back-button"
-          onClick={() => navigate(-1)}
+          onClick={() => navigate("/employee-management")}
         >
           ← Back
         </button>
-
-        <h2>Employee not found</h2>
-
       </div>
     );
   }
@@ -32,43 +29,71 @@ function EmployeeProfile() {
   return (
     <div className="employee-profile-page">
 
+      {/* BACK TO EMPLOYEE MANAGEMENT */}
+
       <button
+        type="button"
         className="back-button"
-        onClick={() => navigate(-1)}
+        onClick={() => navigate("/employee-management")}
       >
         ← Back
       </button>
 
+
+      {/* BREADCRUMB */}
+
       <div className="employee-breadcrumb">
-        Employee Mgmt / Employee Profile / {employee.name}
+        Employee Mgmt / Employee Profile / {employee.employeeName}
       </div>
+
+
+      {/* PROFILE LAYOUT */}
 
       <div className="employee-profile-layout">
 
         <EmployeeProfileSidebar
-          employeeId={String(employee.id)}
+          employeeId={employeeId!}
         />
+
+
+        {/* PROFILE CONTENT */}
 
         <div className="employee-profile-content">
 
           <div className="personal-profile-card">
 
+            {/* EDIT - DISPLAY ONLY */}
+
             <div className="edit-area">
+
               <FaEdit />
-              <span>Edit</span>
+
+              <span>
+                Edit
+              </span>
+
             </div>
+
+
+            {/* AVATAR */}
 
             <div className="employee-avatar">
               👨
             </div>
+
+
+            {/* EMPLOYEE NAME */}
 
             <p className="profile-label">
               Employee Name
             </p>
 
             <h2>
-              {employee.name}
+              {employee.employeeName}
             </h2>
+
+
+            {/* DEPARTMENT */}
 
             <p className="profile-label">
               Department
@@ -78,9 +103,13 @@ function EmployeeProfile() {
               {employee.department}
             </h3>
 
+
+            {/* JOB INFORMATION */}
+
             <div className="profile-job-row">
 
               <div>
+
                 <p className="profile-label">
                   Job Title
                 </p>
@@ -88,9 +117,12 @@ function EmployeeProfile() {
                 <h3>
                   {employee.jobTitle}
                 </h3>
+
               </div>
 
+
               <div>
+
                 <p className="profile-label">
                   Job Category
                 </p>
@@ -98,6 +130,7 @@ function EmployeeProfile() {
                 <h3>
                   {employee.category}
                 </h3>
+
               </div>
 
             </div>
