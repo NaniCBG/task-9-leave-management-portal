@@ -17,13 +17,13 @@ function Sidebar() {
   return (
     <aside className="sidebar">
 
-      {/* Logo */}
+      {/* ================= LOGO ================= */}
       <div className="logo">
         <span className="logo-symbol">✣</span>
         <span>XCELTECH</span>
       </div>
 
-      {/* Profile */}
+      {/* ================= PROFILE ================= */}
       <div className="profile">
         <div className="profile-image">
           👨
@@ -35,13 +35,14 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* Features */}
+      {/* ================= FEATURES ================= */}
       <div className="sidebar-section">
         <p className="section-title">Features</p>
 
         {/* Dashboard */}
         <NavLink
           to="/"
+          end
           className={({ isActive }) =>
             `sidebar-item ${isActive ? "sidebar-active" : ""}`
           }
@@ -50,14 +51,14 @@ function Sidebar() {
           <span>Dashboard</span>
         </NavLink>
 
-        {/* Messages */}
+        {/* Messages - Text only, no notification */}
         <div className="sidebar-item">
           <FaEnvelope className="sidebar-icon" />
           <span>Messages</span>
         </div>
       </div>
 
-      {/* Recruitment */}
+      {/* ================= RECRUITMENT ================= */}
       <div className="sidebar-section">
         <p className="section-title">Recruitment</p>
 
@@ -77,14 +78,20 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* Organization */}
+      {/* ================= ORGANIZATION ================= */}
       <div className="sidebar-section">
         <p className="section-title">Organization</p>
 
-        <div className="sidebar-item">
+        {/* Employee Management */}
+        <NavLink
+          to="/employee-management"
+          className={({ isActive }) =>
+            `sidebar-item ${isActive ? "sidebar-active" : ""}`
+          }
+        >
           <FaUser className="sidebar-icon" />
           <span>Employee Management</span>
-        </div>
+        </NavLink>
 
         {/* Leave Management */}
         <NavLink
@@ -97,13 +104,14 @@ function Sidebar() {
           <span>Leave Management</span>
         </NavLink>
 
+        {/* Performance Management */}
         <div className="sidebar-item">
           <FaBalanceScale className="sidebar-icon" />
           <span>Performance Management</span>
         </div>
       </div>
 
-      {/* KPS Pay */}
+      {/* ================= KPS PAY ================= */}
       <div className="sidebar-section">
         <p className="section-title">KPS Pay</p>
 
@@ -113,13 +121,13 @@ function Sidebar() {
         </div>
       </div>
 
-      {/* Logout */}
+      {/* ================= LOGOUT ================= */}
       <button className="logout-button">
         <FaPowerOff />
         <span>Log Out</span>
       </button>
 
-      {/* Bottom pattern */}
+      {/* ================= BOTTOM PATTERN ================= */}
       <div className="sidebar-bottom-pattern">
         <span>◆</span>
         <span>◆</span>
